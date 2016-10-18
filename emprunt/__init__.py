@@ -1,5 +1,5 @@
-from .taux import calcul_taux_periodique, calcul_interets
+from .taux import nomial
 
 __all__ = [
-    'calcul_taux_periodique', 'calcul_interets',
+    'nomial',
 ]

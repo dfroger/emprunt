@@ -1,10 +1,17 @@
 # coding: utf-8
 
+"""
+Formules pour un taux proportionnel (aussi appelé taux nominal).
+
+"""
+
 def calcul_taux_periodique(taux_annuel, echeances_par_an=12):
     """
+    Avec un taux annuel de 1.8% :
     >>> taux_annuel = 1.8
-    >>> taux_mensuel = calcul_taux_periodique(taux_annuel)
-    >>> taux_mensuel
+
+    Le taux mensuel est:
+    >>> calcul_taux_periodique(taux_annuel)
     0.15
     """
     return taux_annuel / echeances_par_an
