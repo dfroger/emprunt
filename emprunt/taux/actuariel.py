@@ -3,6 +3,8 @@
 """
 Formules pour un taux actuariel
 
+En France, utilisé pour les crédits autres que immobiliers, notamment les
+crédits à la consommation.
 """
 
 def calcul_taux_periodique(taux_annuel, echeances_par_an=12):

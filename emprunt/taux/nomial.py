@@ -3,6 +3,7 @@
 """
 Formules pour un taux proportionnel (aussi appelé taux nominal).
 
+En France, c'est le taux légal pour les crédits immobiliers.
 """
 
 def calcul_taux_periodique(taux_annuel, echeances_par_an=12):
@@ -81,3 +82,7 @@ class TableauAmortissement:
         print('{:>12}{:>12}{:>12}'.format('Principal', 'Intérets', 'Restant'))
         for principal, interets, capital in self.calcul():
             print('{:>12.2f}{:>12.2f}{:>12.2f}'.format(principal, interets, capital))
+
+def calcul_montant_echeance(capital, taux_periodique, nombre_echeances):
+    return (capital * taux_periodique) / (1 -
+                (1 + taux_periodique)**(-nombre_echeances))
