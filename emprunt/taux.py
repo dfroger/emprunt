@@ -38,13 +38,14 @@ class TableauAmortissement:
     >>> tableau = TableauAmortissement(capital, taux_annuel,
     ...                                montant_echeances)
 
-    Le premier mois, 30€ sont remboursés sur les 100€, et 20€ d'euros sont
-    payés (30€ + 20€ = 50€ payés par mois), il reste 70€ à remboursés.
+    Le premier mois, 30€ sont remboursés sur les 100€ (c'est le 'principal'),
+    et 20€ d'intérêts sont payés (30€ + 20€ = 50€ payés par mois), il reste 70€ à
+    remboursés.
 
-    Il faut 3 mois pour tout remboursé.
+    Il faut 3 mois pour tout rembourser.
 
     >>> tableau.affiche()
-       Remboursé    Intérets     Restant
+       Principal    Intérets     Restant
            30.00       20.00       70.00
            36.00       14.00       34.00
            34.00        6.80        0.00
@@ -65,11 +66,11 @@ class TableauAmortissement:
         restant = self.capital
         while restant > 0:
             interets = calcul_interets(restant, self.taux_periodique)
-            capital_rembourse = min(restant, self.montant_echeances - interets)
-            restant -= capital_rembourse
-            yield capital_rembourse, interets, restant
+            principal = min(restant, self.montant_echeances - interets)
+            restant -= principal
+            yield principal, interets, restant
 
     def affiche(self):
-        print('{:>12}{:>12}{:>12}'.format('Remboursé', 'Intérets', 'Restant'))
-        for capital_rembourse, interets, capital in self.calcul():
-            print('{:>12.2f}{:>12.2f}{:>12.2f}'.format(capital_rembourse, interets, capital))
+        print('{:>12}{:>12}{:>12}'.format('Principal', 'Intérets', 'Restant'))
+        for principal, interets, capital in self.calcul():
+            print('{:>12.2f}{:>12.2f}{:>12.2f}'.format(principal, interets, capital))
